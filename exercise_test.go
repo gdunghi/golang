@@ -5,61 +5,24 @@ import (
 	"testing"
 )
 
-func TestAppendSlice(t *testing.T) {
-	data := []string{"go", "java", "node", "clojure", "python"}
-	add := []string{"react", "angular", "vue"}
+func TestFibonacci1(t *testing.T) {
+	result := fibonacci(5)
 
-	merged := concat(data, add)
+	expected := []int{0, 1, 1, 2, 3}
 
-	expected := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
-
-	if !reflect.DeepEqual(merged, expected) {
-		t.Errorf("%v is expected but got %v", expected, merged)
+	if !reflect.DeepEqual(result, expected) {
+		t.Error("Please make the fibonacci function")
+		t.Errorf("%v\nis my expected but got\n%v\n", expected, result)
 	}
 }
 
-func TestGetRidOfTheFirst(t *testing.T) {
-	data := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
+func TestFibonacci2(t *testing.T) {
+	result := fibonacci(10)
 
-	r := delFirst(data)
+	expected := []int{0, 1, 1, 2, 3, 5, 8, 13, 21, 34}
 
-	expected := []string{"java", "node", "clojure", "python", "react", "angular", "vue"}
-
-	if !reflect.DeepEqual(expected, expected) {
-		t.Errorf("%v is expected but got %v", expected, r)
+	if !reflect.DeepEqual(result, expected) {
+		t.Error("Please make the fibonacci function")
+		t.Errorf("%v\nis my expected but got\n%v\n", expected, result)
 	}
 }
-
-func TestGetRidOfTheLast(t *testing.T) {
-	data := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
-
-	r := delLast(data)
-
-	expected := []string{"go", "java", "node", "clojure", "python", "react", "angular"}
-
-	if !reflect.DeepEqual(expected, expected) {
-		t.Errorf("%v is expected but got %v", expected, r)
-	}
-}
-
-func TestGetRidOfTheSecond(t *testing.T) {
-	data := []string{"go", "java", "node", "clojure", "python", "react", "angular", "vue"}
-
-	r := delSecond(data)
-
-	expected := []string{"go", "node", "clojure", "python", "react", "angular", "vue"}
-
-	if !reflect.DeepEqual(r, expected) {
-		t.Errorf("%v is expected but got %v", expected, r)
-	}
-}
-
-// func TestOnlyOddShouldReturn(t *testing.T) {
-// 	data := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
-
-// 	expected := []int{1, 3, 5, 7, 9}
-
-// 	if !reflect.DeepEqual(data, expected) {
-// 		t.Errorf("%v is expected but got %v", expected, data)
-// 	}
-// }
