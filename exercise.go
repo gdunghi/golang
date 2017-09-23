@@ -1,17 +1,23 @@
 package golang
 
-import (
-	"strings"
-)
-
-// LettersCount is function
-func LettersCount(sentenses string) map[string]int {
-	var m = map[string]int{}
-	split := strings.Split(sentenses, " ")
-
-	for _, v := range split {
-		m[v] = len(v)
+func enc(x int, n int) int {
+	if x == 32 {
+		return x
 	}
 
-	return m
+	return (x + n) % 26
+
+}
+
+func caesar(s string, rot int) string {
+	result := ""
+	for _, v := range s {
+		if v == 32 {
+			result += string(32)
+		} else {
+			m := ((int(v) + rot) % 26)
+			result += string(m + 97)
+		}
+	}
+	return result
 }
