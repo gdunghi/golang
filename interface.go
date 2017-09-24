@@ -1,6 +1,9 @@
 package golang
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 func echo(s fmt.Stringer) {
 	print(s.String())
@@ -26,4 +29,36 @@ type myStringer interface {
 
 func strErr(s myStringer) {
 	fmt.Println(s.Error(), s.String())
+}
+
+type myInteface interface {
+	String() string
+	get() error
+}
+
+type err struct {
+	Err error
+}
+
+//String aa
+func (p person) String() string {
+	return p.Name
+}
+
+func (p person) get() error {
+	return errors.New(p.Name)
+}
+
+type person struct {
+	Name string
+}
+
+func newStringer(name string) fmt.Stringer {
+	p := person{Name: name}
+	return p
+}
+
+func newThrow(str string) person {
+	p := person{Name: str}
+	return p
 }
