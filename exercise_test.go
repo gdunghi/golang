@@ -47,10 +47,10 @@ func TestInvert(t *testing.T) {
 	}
 }
 
-func TestPi(t *testing.T) {
-	p := pi(odds(10000.0), newOddE())
+// func TestPi(t *testing.T) {
+// 	p := pi(odds(10000.0), newOddE())
 
-	if p != 3.141392653591791 {
-		t.Error("it should be 3.141392653591791 but got", p)
-	}
-}
+// 	if p != 3.141392653591791 {
+// 		t.Error("it should be 3.141392653591791 but got", p)
+// 	}
+// }
